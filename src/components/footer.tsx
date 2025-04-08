@@ -9,12 +9,12 @@ export function Footer() {
       <div className="container">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="mb-4 md:mb-0">
-            © {year} John Doe. All rights reserved.
+            © {year} Md Parvez Mosaraf. All rights reserved.
           </p>
           
           <div className="flex space-x-4">
             <a
-              href="https://github.com"
+              href="https://github.com/parvezmosaraf"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary transition-colors"
@@ -23,7 +23,7 @@ export function Footer() {
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/md-parvez-mosaraf/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary transition-colors"
@@ -41,7 +41,7 @@ export function Footer() {
               <Twitter className="h-5 w-5" />
             </a>
             <a
-              href="mailto:john.doe@example.com"
+              href="mailto:parvez.cse.official@gmail.com"
               className="hover:text-primary transition-colors"
               aria-label="Email"
             >
