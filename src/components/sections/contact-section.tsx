@@ -100,12 +100,12 @@ export function ContactSection() {
     {
       icon: Github,
       label: "GitHub",
-      link: "https://github.com/parvez-swe",
+      link: "https://github.com/parvezmosaraf",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      link: "https://www.linkedin.com/in/parvez-swe/",
+      link: "https://www.linkedin.com/in/md-parvez-mosaraf/",
     },
     {
       icon: Facebook,
