@@ -40,7 +40,7 @@ export function Header() {
           href="#home"
           className="text-xl font-bold flex items-center space-x-2 text-primary hover:text-primary/80 transition-colors"
         >
-          <span>Portfolio</span>
+          <span>P A R V E Z</span>
         </a>
 
         {/* Desktop Navigation */}
