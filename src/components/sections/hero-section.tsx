@@ -34,9 +34,11 @@ export function HeroSection() {
           </p>
           
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button className="gap-2" size="lg">
-              <Download className="w-4 h-4" />
-              Download Resume
+            <Button className="gap-2" size="lg" asChild>
+              <a href="/resume.pdf" download>
+                <Download className="w-4 h-4" />
+                Download Resume
+              </a>
             </Button>
             <Button className="gap-2" size="lg" variant="outline" asChild>
               <a href="#projects">

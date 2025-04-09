@@ -31,11 +31,44 @@ export function ResumeSection() {
         <h2 className="section-title">Resume</h2>
         
         <div className="max-w-5xl mx-auto">
-          <div className="flex justify-center mb-8">
-            <Button className="gap-2" size="lg">
-              <Download className="h-4 w-4" />
-              Download Full Resume
-            </Button>
+          <div className="flex flex-col items-center mb-8">
+            {/* Resume Preview Card */}
+            <Card className="w-full mb-6 border-primary/20 shadow-lg overflow-hidden bg-background/50 backdrop-blur-sm">
+              <div className="bg-gradient-to-r from-primary/20 to-primary/5 py-4 px-6 border-b border-primary/20">
+                <h3 className="text-xl font-bold flex items-center">
+                  <Download className="mr-2 h-5 w-5 text-primary" />
+                  Resume Preview
+                </h3>
+              </div>
+              <CardContent className="p-0">
+                <div className="w-full h-[300px] sm:h-[400px] md:h-[600px] relative overflow-hidden bg-white flex justify-center">
+                  <div className="w-[850px] max-w-full relative">
+                    <iframe
+                      src="/resume.pdf#toolbar=0&view=FitH"
+                      className="w-full absolute inset-0"
+                      title="Resume Preview"
+                      loading="lazy"
+                      style={{
+                        pointerEvents: "none",
+                        height: '140%',
+                        transform: 'scale(0.9)',
+                        transformOrigin: 'top center',
+                        backgroundColor: 'white'
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white pointer-events-none" />
+                  </div>
+                </div>
+              </CardContent>
+              <div className="bg-gradient-to-b from-background to-background/50 p-6 text-center border-t border-primary/20">
+                <Button className="gap-2" size="lg" variant="outline" asChild>
+                  <a href="/resume.pdf" download className="hover:no-underline">
+                    <Download className="h-4 w-4" />
+                    Download Full Resume
+                  </a>
+                </Button>
+              </div>
+            </Card>
           </div>
           
           {/* Contact Information Card */}
@@ -97,7 +130,39 @@ export function ResumeSection() {
             </CardContent>
           </Card>
           
-          {/* Skills & Technologies Card */}
+          {/* Education Section */}
+          <Card className="mb-8 border-primary/20 shadow-lg">
+            <div className="bg-primary/10 py-3 px-6 border-b border-primary/20">
+              <h3 className="text-xl font-bold flex items-center">
+                <GraduationCap className="mr-2 h-5 w-5 text-primary" />
+                Education
+              </h3>
+            </div>
+            <CardContent className="p-6">
+              <div className="space-y-6">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                  <div>
+                    <h4 className="text-lg font-semibold">Bachelor of Science in Computer Science and Engineering</h4>
+                    <p className="text-muted-foreground">Daffodil International University</p>
+                  </div>
+                  <div className="text-sm text-primary font-medium px-3 py-1 rounded-full bg-primary/10">
+                    2019 - 2023
+                  </div>
+                </div>
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                  <div>
+                    <h4 className="text-lg font-semibold">Higher Secondary Certificate (HSC)</h4>
+                    <p className="text-muted-foreground">Govt. Bangla College</p>
+                  </div>
+                  <div className="text-sm text-primary font-medium px-3 py-1 rounded-full bg-primary/10">
+                    2016 - 2018
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+          
+          {/* Skills Section */}
           <Card className="mb-8 overflow-hidden border-primary/20 shadow-lg">
             <div className="bg-primary/10 py-3 px-6 border-b border-primary/20">
               <h3 className="text-xl font-bold flex items-center">
@@ -137,35 +202,7 @@ export function ResumeSection() {
             </CardContent>
           </Card>
           
-          {/* Education Card */}
-          <Card className="border-primary/20 shadow-lg mb-8">
-            <div className="bg-primary/10 py-3 px-6 border-b border-primary/20">
-              <h3 className="text-xl font-bold flex items-center">
-                <GraduationCap className="mr-2 h-5 w-5 text-primary" />
-                Education
-              </h3>
-            </div>
-            <CardContent className="p-6">
-              <div className="space-y-6">
-                <div className="relative pl-8 before:absolute before:left-0 before:top-2 before:bottom-0 before:w-0.5 before:bg-primary/30">
-                  <div className="absolute left-0 top-1.5 w-5 h-5 bg-primary rounded-full transform -translate-x-1/2 flex items-center justify-center">
-                    <div className="w-2 h-2 bg-background rounded-full"></div>
-                  </div>
-                  
-                  <div className="bg-background/50 p-5 rounded-lg border border-primary/20 hover:shadow-md transition-all">
-                    <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
-                      <h4 className="font-semibold text-lg">BSc in Computer Science & Engineering</h4>
-                      <span className="text-sm text-primary font-medium px-3 py-1 rounded-full bg-primary/10 inline-block mt-2 md:mt-0">2018 - 2023</span>
-                    </div>
-                    <p className="text-muted-foreground font-medium">Daffodil International University</p>
-                    <p className="text-muted-foreground">Dhaka, Bangladesh</p>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          
-          {/* Certifications Card */}
+          {/* Certifications Section */}
           <Card className="border-primary/20 shadow-lg">
             <div className="bg-primary/10 py-3 px-6 border-b border-primary/20">
               <h3 className="text-xl font-bold flex items-center">
