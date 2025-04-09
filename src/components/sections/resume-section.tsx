@@ -31,105 +31,44 @@ export function ResumeSection() {
         <h2 className="section-title">Resume</h2>
         
         <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col items-center mb-8">
-            {/* Resume Preview Card */}
-            <Card className="w-full mb-6 border-primary/20 shadow-lg overflow-hidden bg-background/50 backdrop-blur-sm">
-              <div className="bg-gradient-to-r from-primary/20 to-primary/5 py-4 px-6 border-b border-primary/20">
-                <h3 className="text-xl font-bold flex items-center">
-                  <Download className="mr-2 h-5 w-5 text-primary" />
-                  Resume Preview
-                </h3>
-              </div>
-              <CardContent className="p-0">
-                <div className="w-full h-[300px] sm:h-[400px] md:h-[600px] relative overflow-hidden bg-white flex justify-center">
-                  <div className="w-[850px] max-w-full relative">
-                    <iframe
-                      src="/resume.pdf#toolbar=0&view=FitH"
-                      className="w-full absolute inset-0"
-                      title="Resume Preview"
-                      loading="lazy"
-                      style={{
-                        pointerEvents: "none",
-                        height: '140%',
-                        transform: 'scale(0.9)',
-                        transformOrigin: 'top center',
-                        backgroundColor: 'white'
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white pointer-events-none" />
-                  </div>
-                </div>
-              </CardContent>
-              <div className="bg-gradient-to-b from-background to-background/50 p-6 text-center border-t border-primary/20">
-                <Button className="gap-2" size="lg" variant="outline" asChild>
-                  <a href="/resume.pdf" download className="hover:no-underline">
-                    <Download className="h-4 w-4" />
-                    Download Full Resume
-                  </a>
-                </Button>
-              </div>
-            </Card>
-          </div>
-          
-          {/* Contact Information Card */}
-          <Card className="mb-8 border-primary/20 shadow-lg">
-            <div className="bg-primary/10 py-3 px-6 border-b border-primary/20">
-              <h3 className="text-xl font-bold">Contact Information</h3>
+          {/* Resume Preview Card */}
+          <Card className="w-full mb-6 border-primary/20 shadow-lg overflow-hidden bg-background/50 backdrop-blur-sm">
+            <div className="bg-gradient-to-r from-primary/20 to-primary/5 py-4 px-6 border-b border-primary/20">
+              <h3 className="text-xl font-bold flex items-center">
+                <Download className="mr-2 h-5 w-5 text-primary" />
+                Resume Preview
+              </h3>
             </div>
-            <CardContent className="p-6">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <div className="flex items-center gap-3 p-4 bg-background/50 rounded-lg border border-primary/20 hover:shadow-md transition-all">
-                    <Mail className="h-5 w-5 text-primary" />
-                    <div>
-                      <p className="text-sm text-muted-foreground">Email</p>
-                      <a href="mailto:parvez.cse.official@gmail.com" className="text-sm font-medium hover:text-primary">
-                        parvez.cse.official@gmail.com
-                      </a>
-                    </div>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                >
-                  <div className="flex items-center gap-3 p-4 bg-background/50 rounded-lg border border-primary/20 hover:shadow-md transition-all">
-                    <Phone className="h-5 w-5 text-primary" />
-                    <div>
-                      <p className="text-sm text-muted-foreground">Phone</p>
-                      <a href="tel:+8801400578737" className="text-sm font-medium hover:text-primary">
-                        +880 1400-578737
-                      </a>
-                    </div>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                  <div className="flex items-center gap-3 p-4 bg-background/50 rounded-lg border border-primary/20 hover:shadow-md transition-all">
-                    <MapPin className="h-5 w-5 text-primary" />
-                    <div>
-                      <p className="text-sm text-muted-foreground">Location</p>
-                      <p className="text-sm font-medium">Dhaka, Bangladesh</p>
-                    </div>
-                  </div>
-                </motion.div>
+            <CardContent className="p-0">
+              <div className="w-full h-[300px] sm:h-[400px] md:h-[600px] relative overflow-hidden bg-white flex justify-center">
+                <div className="w-[850px] max-w-full relative">
+                  <iframe
+                    src="/resume.pdf#toolbar=0&view=FitH"
+                    className="w-full absolute inset-0"
+                    title="Resume Preview"
+                    loading="lazy"
+                    style={{
+                      pointerEvents: "none",
+                      height: '140%',
+                      transform: 'scale(0.9)',
+                      transformOrigin: 'top center',
+                      backgroundColor: 'white'
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white pointer-events-none" />
+                </div>
               </div>
             </CardContent>
+            <div className="bg-gradient-to-b from-background to-background/50 p-6 text-center border-t border-primary/20">
+              <Button className="gap-2" size="lg" variant="outline" asChild>
+                <a href="/resume.pdf" download className="hover:no-underline">
+                  <Download className="h-4 w-4" />
+                  Download Full Resume
+                </a>
+              </Button>
+            </div>
           </Card>
-          
+
           {/* Education Section */}
           <Card className="mb-8 border-primary/20 shadow-lg">
             <div className="bg-primary/10 py-3 px-6 border-b border-primary/20">
