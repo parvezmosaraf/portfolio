@@ -33,7 +33,7 @@ const projects: Project[] = [
     title: "WeatherWardrobe",
     description: "Modern Weather Outfit Recommendation App",
     longDescription: "An innovative application that provides personalized outfit recommendations based on weather conditions. Built with TypeScript and modern web technologies.",
-    image: "https://assets.grok.com/users/225c47d2-e1f6-4bf1-933c-683284cd6b11/generated/cNuWFvt2jm9JRpRL/image.jpg",
+    image: "/weather.png",
     tags: ["TypeScript", "React", "Weather API", "AI", "Responsive Design", "Tailwind CSS"],
     category: ["Web Development", "AI"],
     demoLink: "https://weather-wardrobe.vercel.app",
@@ -51,7 +51,7 @@ const projects: Project[] = [
     title: "Edueasee-Ai-Virtual-Teacher",
     description: "AI-powered Virtual Teacher Platform",
     longDescription: "An educational platform featuring an AI virtual teacher that provides personalized learning experiences and interactive educational content.",
-    image: "https://assets.grok.com/users/225c47d2-e1f6-4bf1-933c-683284cd6b11/generated/KUL8Ot38etwjR6Pe/image.jpg",
+    image: "/edueasee.png",
     tags: ["TypeScript", "AI", "Education", "React", "Machine Learning", "Next.js"],
     category: ["Web Development", "AI"],
     demoLink: "https://edueasee.vercel.app/",
@@ -69,7 +69,7 @@ const projects: Project[] = [
     title: "Invoice-Pro",
     description: "Professional Invoice Management System",
     longDescription: "A comprehensive invoice management system that helps businesses create, track, and manage invoices efficiently.",
-    image: "https://assets.grok.com/users/225c47d2-e1f6-4bf1-933c-683284cd6b11/generated/OVbYOkiE8oEESqvw/image.jpg",
+    image: "/invoice.png",
     tags: ["TypeScript", "React", "Business", "Finance", "Database", "Supabase"],
     category: ["Web Development", "Business"],
     demoLink: "https://paul-invoice.vercel.app/",
@@ -87,7 +87,7 @@ const projects: Project[] = [
     title: "Service Management",
     description: "Service Booking and Management Platform",
     longDescription: "A full-featured service management platform that enables businesses to handle bookings, appointments, and customer interactions.",
-    image: "https://assets.grok.com/users/225c47d2-e1f6-4bf1-933c-683284cd6b11/generated/Oltq5eE8iQrFkbiH/image.jpg",
+    image: "/service.png",
     tags: ["Python", "Django", "Database", "Business", "Web", "REST API"],
     category: ["Web Development", "Business"],
     demoLink: "https://service-management.vercel.app",
@@ -105,10 +105,10 @@ const projects: Project[] = [
     title: "DataQuest",
     description: "Data Analysis and Visualization Platform",
     longDescription: "A powerful data analysis and visualization platform that helps users explore and understand complex datasets through interactive visualizations.",
-    image: "https://assets.grok.com/users/225c47d2-e1f6-4bf1-933c-683284cd6b11/generated/SnqseNcfrukhbE6K/image.jpg",
+    image: "/data.png",
     tags: ["TypeScript", "React", "Data Analysis", "Visualization", "Charts", "D3.js"],
     category: ["Web Development", "Data"],
-    demoLink: "https://dataquest.vercel.app",
+    demoLink: "https://dataquest-beige.vercel.app/",
     githubLink: "https://github.com/parvezmosaraf/dataquest",
     features: [
       "Interactive data visualization",
@@ -123,7 +123,7 @@ const projects: Project[] = [
     title: "ExpenseTracker",
     description: "Personal Finance Management App",
     longDescription: "A comprehensive expense tracking application that helps users manage their finances, track spending, and set budget goals.",
-    image: "https://assets.grok.com/users/225c47d2-e1f6-4bf1-933c-683284cd6b11/generated/fbcSybSJo4UAZrgM/image.jpg",
+    image: "/expense.png",
     tags: ["TypeScript", "React", "Finance", "Database", "Authentication", "Charts"],
     category: ["Web Development", "Business"],
     demoLink: "https://expense-tracker.vercel.app",
@@ -159,7 +159,7 @@ const projects: Project[] = [
     title: "Alcohol Recommendation System",
     description: "AI-Powered Alcohol Recommendation Engine",
     longDescription: "An intelligent system that recommends alcoholic beverages based on user preferences, occasion, and taste profiles using machine learning algorithms.",
-    image: "https://assets.grok.com/users/225c47d2-e1f6-4bf1-933c-683284cd6b11/generated/COAhvY4lhZcTyT9h/image.jpg",
+    image: "/alcohol.png",
     tags: ["Python", "Machine Learning", "AI", "Recommendation System", "Data Analysis"],
     category: ["AI", "Data"],
     demoLink: "https://alcohol-recommendation.vercel.app",
@@ -177,7 +177,7 @@ const projects: Project[] = [
     title: "Slack Automation",
     description: "Slack Workspace Automation Tool",
     longDescription: "A powerful automation tool for Slack workspaces that helps streamline communication and task management.",
-    image: "https://assets.grok.com/users/225c47d2-e1f6-4bf1-933c-683284cd6b11/generated/ZiGQOAUYtM9Xz2wX/image.jpg",
+    image: "/slack.png",
     tags: ["Python", "Slack API", "Automation", "Bot", "Integration"],
     category: ["Automation", "Integration"],
     demoLink: "https://slack-automation.vercel.app",
@@ -195,7 +195,7 @@ const projects: Project[] = [
     title: "AI Resume Builder",
     description: "Intelligent Resume Creation Platform",
     longDescription: "An AI-powered platform that helps users create professional resumes with smart suggestions and formatting.",
-    image: "https://assets.grok.com/users/225c47d2-e1f6-4bf1-933c-683284cd6b11/generated/sDPeEzcwJRO8Asej/image.jpg",
+    image: "/resume.png",
     tags: ["JavaScript", "AI", "Resume", "Career", "Templates"],
     category: ["Web Development", "AI"],
     demoLink: "https://ai-resume-builder-opal.vercel.app/",
@@ -227,74 +227,81 @@ export function ProjectsSection() {
   };
   
   return (
-    <section id="projects">
+    <section id="projects" className="py-12 sm:py-16">
       <div className="section-container">
-        <h2 className="section-title">Projects</h2>
+        <h2 className="section-title mb-12">Projects</h2>
         
         <Tabs defaultValue="All" className="w-full">
           <div className="flex justify-center mb-8">
-            <TabsList className="bg-secondary/50 p-1 rounded-full">
-              {categories.map((category) => (
-                <TabsTrigger 
-                  key={category} 
-                  value={category}
-                  onClick={() => setActiveCategory(category)}
-                  className="rounded-full px-6 py-2 transition-all duration-300 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-                >
-                  {category}
-                </TabsTrigger>
-              ))}
-            </TabsList>
+            <div className="w-full max-w-3xl overflow-x-auto pb-4 px-4 -mx-4">
+              <TabsList className="bg-secondary/50 p-1.5 rounded-full inline-flex flex-nowrap min-w-fit mx-auto">
+                {categories.map((category) => (
+                  <TabsTrigger 
+                    key={category} 
+                    value={category}
+                    onClick={() => setActiveCategory(category)}
+                    className="rounded-full px-4 sm:px-6 py-2 whitespace-nowrap text-sm sm:text-base transition-all duration-300 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground hover:bg-primary/10"
+                  >
+                    {category}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
           </div>
           
           <TabsContent value={activeCategory} className="mt-0">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {filteredProjects.map((project) => (
                 <Card key={project.id} className="overflow-hidden animate-fade-in transition-all duration-300 hover:shadow-lg hover:-translate-y-1 rounded-2xl border-2">
-                  <div className="aspect-video w-full overflow-hidden">
+                  <div className="aspect-video w-full overflow-hidden bg-secondary/20">
                     <img
                       src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = '/project-placeholder.jpg'; // Fallback image
+                        target.onerror = null; // Prevent infinite loop
+                      }}
                     />
                   </div>
-                  <CardHeader>
-                    <CardTitle>{project.title}</CardTitle>
-                    <CardDescription>{project.description}</CardDescription>
+                  <CardHeader className="p-4 sm:p-6">
+                    <CardTitle className="text-lg sm:text-xl">{project.title}</CardTitle>
+                    <CardDescription className="text-sm sm:text-base">{project.description}</CardDescription>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="p-4 sm:p-6 pt-0">
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.tags.slice(0, 3).map((tag) => (
-                        <Badge key={tag} variant="secondary" className="rounded-full px-4">{tag}</Badge>
+                        <Badge key={tag} variant="secondary" className="rounded-full px-3 py-1 text-xs sm:text-sm">{tag}</Badge>
                       ))}
                       {project.tags.length > 3 && (
-                        <Badge variant="outline" className="rounded-full px-4">+{project.tags.length - 3}</Badge>
+                        <Badge variant="outline" className="rounded-full px-3 py-1 text-xs sm:text-sm">+{project.tags.length - 3}</Badge>
                       )}
                     </div>
                   </CardContent>
-                  <CardFooter className="flex justify-between">
-                    <Button variant="outline" onClick={() => openProjectDialog(project)} className="rounded-full">
+                  <CardFooter className="flex justify-between p-4 sm:p-6 pt-0">
+                    <Button variant="outline" onClick={() => openProjectDialog(project)} className="rounded-full text-sm sm:text-base">
                       View Details
                     </Button>
                     <div className="flex space-x-2">
-                      <Button size="icon" variant="ghost" asChild className="rounded-full">
+                      <Button size="icon" variant="ghost" asChild className="rounded-full h-9 w-9 sm:h-10 sm:w-10">
                         <a
                           href={project.githubLink}
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label="GitHub repository"
                         >
-                          <Github className="h-5 w-5" />
+                          <Github className="h-4 w-4 sm:h-5 sm:w-5" />
                         </a>
                       </Button>
-                      <Button size="icon" variant="ghost" asChild className="rounded-full">
+                      <Button size="icon" variant="ghost" asChild className="rounded-full h-9 w-9 sm:h-10 sm:w-10">
                         <a
                           href={project.demoLink}
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label="Live demo"
                         >
-                          <ExternalLink className="h-5 w-5" />
+                          <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5" />
                         </a>
                       </Button>
                     </div>
@@ -317,11 +324,16 @@ export function ProjectsSection() {
               </DialogHeader>
               
               <div className="grid gap-4">
-                <div className="aspect-video overflow-hidden rounded-xl">
+                <div className="aspect-video overflow-hidden rounded-xl bg-secondary/20">
                   <img
                     src={selectedProject.image}
                     alt={selectedProject.title}
                     className="w-full h-full object-cover"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = '/project-placeholder.jpg'; // Fallback image
+                      target.onerror = null; // Prevent infinite loop
+                    }}
                   />
                 </div>
                 
