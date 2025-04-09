@@ -21,10 +21,10 @@ import { motion } from "framer-motion";
 import emailjs from '@emailjs/browser';
 
 const contactFormSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  subject: z.string().min(5, { message: "Subject must be at least 5 characters." }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  subject: z.string().min(5, "Subject must be at least 5 characters"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -48,15 +48,15 @@ export function ContactSection() {
     
     try {
       await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+        'service_hc7069s',
+        'template_llaqfk5',
         {
           from_name: data.name,
           from_email: data.email,
           subject: data.subject,
           message: data.message,
         },
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+        'N_iCm21VUUt710DFS'
       );
 
       toast({
@@ -70,10 +70,14 @@ export function ContactSection() {
         description: "Please try again later or contact me directly via email.",
         variant: "destructive",
       });
+      console.error('EmailJS Error:', error);
     } finally {
       setIsSubmitting(false);
     }
   }
+
+  // Initialize EmailJS
+  emailjs.init('N_iCm21VUUt710DFS');
 
   const contactInfo = [
     {
@@ -185,6 +189,28 @@ export function ContactSection() {
                 </div>
               </div>
             </motion.div>
+            
+            <motion.div variants={itemVariants}>
+              <div className="bg-gradient-to-r from-primary/20 to-primary/5 p-4 sm:p-6 rounded-xl backdrop-blur-sm border border-primary/20">
+                <h4 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-gradient-primary">Connect with me</h4>
+                <div className="flex flex-wrap gap-4 sm:gap-6">
+                  {socialLinks.map((social) => (
+                    <motion.a
+                      key={social.label}
+                      href={social.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 sm:w-14 sm:h-14 bg-background/80 rounded-full flex items-center justify-center border border-primary/30 hover:bg-primary/20 hover:border-primary transition-colors"
+                      aria-label={social.label}
+                      whileHover={{ y: -5, scale: 1.1 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    >
+                      <social.icon className="h-5 w-5 sm:h-6 sm:w-6" />
+                    </motion.a>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
           
           <motion.div
@@ -194,26 +220,26 @@ export function ContactSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <Card className="overflow-hidden border-primary/20 shadow-lg">
-              <div className="bg-primary/10 py-2 sm:py-3 px-4 sm:px-6 border-b border-primary/20">
-                <h3 className="text-lg sm:text-xl font-bold flex items-center">
-                  <SendHorizontal className="mr-2 h-4 w-4 sm:h-5 sm:w-5 text-primary" />
+              <div className="bg-primary/10 py-3 px-6 border-b border-primary/20">
+                <h3 className="text-xl font-bold flex items-center">
+                  <Mail className="mr-2 h-5 w-5 text-primary" />
                   Send Me a Message
                 </h3>
               </div>
-              <CardContent className="p-4 sm:p-6">
+              <CardContent className="p-6">
                 <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <FormField
                         control={form.control}
                         name="name"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-sm sm:text-base">Name</FormLabel>
+                            <FormLabel>Name</FormLabel>
                             <FormControl>
-                              <Input placeholder="Your name" className="bg-background/50 text-sm sm:text-base" {...field} />
+                              <Input placeholder="Your name" {...field} />
                             </FormControl>
-                            <FormMessage className="text-xs sm:text-sm" />
+                            <FormMessage />
                           </FormItem>
                         )}
                       />
@@ -223,11 +249,11 @@ export function ContactSection() {
                         name="email"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-sm sm:text-base">Email</FormLabel>
+                            <FormLabel>Email</FormLabel>
                             <FormControl>
-                              <Input placeholder="your.email@example.com" className="bg-background/50 text-sm sm:text-base" {...field} />
+                              <Input placeholder="Enter your email" {...field} />
                             </FormControl>
-                            <FormMessage className="text-xs sm:text-sm" />
+                            <FormMessage />
                           </FormItem>
                         )}
                       />
@@ -238,11 +264,11 @@ export function ContactSection() {
                       name="subject"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-sm sm:text-base">Subject</FormLabel>
+                          <FormLabel>Subject</FormLabel>
                           <FormControl>
-                            <Input placeholder="What is this about?" className="bg-background/50 text-sm sm:text-base" {...field} />
+                            <Input placeholder="What is this about?" {...field} />
                           </FormControl>
-                          <FormMessage className="text-xs sm:text-sm" />
+                          <FormMessage />
                         </FormItem>
                       )}
                     />
@@ -252,20 +278,20 @@ export function ContactSection() {
                       name="message"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-sm sm:text-base">Message</FormLabel>
+                          <FormLabel>Message</FormLabel>
                           <FormControl>
                             <Textarea 
                               placeholder="Write your message here..." 
-                              className="min-h-[120px] sm:min-h-[160px] bg-background/50 text-sm sm:text-base" 
+                              className="min-h-[120px]" 
                               {...field}
                             />
                           </FormControl>
-                          <FormMessage className="text-xs sm:text-sm" />
+                          <FormMessage />
                         </FormItem>
                       )}
                     />
                     
-                    <Button type="submit" className="w-full text-sm sm:text-base py-2 sm:py-3" disabled={isSubmitting}>
+                    <Button type="submit" className="w-full" disabled={isSubmitting}>
                       {isSubmitting ? (
                         <>
                           <span className="animate-pulse mr-2">Sending</span>
@@ -284,35 +310,6 @@ export function ContactSection() {
             </Card>
           </motion.div>
         </div>
-        
-        {/* Connect with me section */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 sm:mt-16 max-w-4xl mx-auto px-4 sm:px-0"
-        >
-          <div className="bg-gradient-to-r from-primary/20 to-primary/5 p-4 sm:p-6 rounded-xl backdrop-blur-sm border border-primary/20 text-center">
-            <h4 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-gradient-primary">Connect with me</h4>
-            <div className="flex justify-center flex-wrap gap-4 sm:gap-6">
-              {socialLinks.map((social) => (
-                <motion.a
-                  key={social.label}
-                  href={social.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 sm:w-14 sm:h-14 bg-background/80 rounded-full flex items-center justify-center border border-primary/30 hover:bg-primary/20 hover:border-primary transition-colors"
-                  aria-label={social.label}
-                  whileHover={{ y: -5, scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  <social.icon className="h-5 w-5 sm:h-6 sm:w-6" />
-                </motion.a>
-              ))}
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
