@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,11 +5,11 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "Experience", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Resume", href: "#resume" },
-  { name: "Contact", href: "#contact" },
+  { name: "HOME", href: "#home" },
+  { name: "EXPERIENCE", href: "#experience" },
+  { name: "PROJECTS", href: "#projects" },
+  { name: "RESUME", href: "#resume" },
+  { name: "CONTACT", href: "#contact" },
 ];
 
 export function Header() {
