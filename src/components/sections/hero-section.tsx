@@ -28,9 +28,9 @@ export function HeroSection() {
             />
           </div>
           
-          <p className="mt-6 text-lg text-muted-foreground">
-            I build exceptional digital experiences that are fast, 
-            accessible, visually appealing, and responsive.
+          <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+            I specialize in AI applications and full-stack development, combining machine learning 
+            with modern web technologies to create intelligent and user-friendly solutions.
           </p>
           
           <div className="mt-8 flex flex-wrap justify-center gap-4">
